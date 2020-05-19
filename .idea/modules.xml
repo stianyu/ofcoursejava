@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DesignPatterns/DesignPatterns.iml" filepath="$PROJECT_DIR$/DesignPatterns/DesignPatterns.iml" />
+      <module fileurl="file://$PROJECT_DIR$/QA/QA.iml" filepath="$PROJECT_DIR$/QA/QA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SortAlgorithms/SortAlgorithms.iml" filepath="$PROJECT_DIR$/SortAlgorithms/SortAlgorithms.iml" />
+    </modules>
+  </component>
+</project>

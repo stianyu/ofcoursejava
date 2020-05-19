@@ -7,6 +7,7 @@ public class Sort {
     private Sort() {
     }
 
+    // 选择排序
     public static void selectSort(int[] arr) {
         if (arr == null) {
             return;
@@ -25,6 +26,7 @@ public class Sort {
 
     }
 
+    // 插入排序
     public static void insertionSort(int[] arr) {
         if (arr == null) {
             return;
@@ -42,6 +44,7 @@ public class Sort {
         }
     }
 
+    // 归并排序
     public static void mergeSort(int[] arr) {
         if (arr == null) {
             return;
@@ -127,6 +130,7 @@ public class Sort {
         }
     }
 
+    // 快速排序（随机快排）
     public static void quickSort(int[] arr) {
         if (arr == null) {
             return;
@@ -165,6 +169,7 @@ public class Sort {
         return j;
     }
 
+    // 快速排序（双路随机快排）
     public static void quickSort2(int[] arr) {
         if (arr == null) {
             return;
