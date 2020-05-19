@@ -1,9 +1,9 @@
 ### Java学习代码仓库
 **特别鸣谢**
-    [zlaizhe](https://github.com/zlaizhe)对我在Java学习上的支持
-    [liuyubobo](https://github.com/liuyubobobo)讲授的数据结构和算法课，受益匪浅，bobo老师是我认为课讲得最好的算法老师。是很酷:)
-    黑马程序员，b站白嫖课程之王
-    马士兵老师，买不起马老师的课只能蹭直播公开课，蹭书
+* [zlaizhe大佬](https://github.com/zlaizhe)对我在Java学习上的支持，是我Java学习引路人
+* [liuyubobo](https://github.com/liuyubobobo)讲授的数据结构和算法课，受益匪浅，bobo老师是我认为课讲得最好的算法老师。是很酷:)
+* 黑马程序员，b站当之无愧的白嫖课程之王
+* 马士兵老师，马老师的课什么都好就是对我来说太贵难度太大，我有时会蹭直播公开课，蹭书。感兴趣可以支持一下（腾讯课堂）
 #### 简要介绍
 * DesignPatterns 设计模式代码库
 * QA             题目和答案代码库
