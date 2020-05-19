@@ -13,7 +13,7 @@
 * 代理
 
 #### QA题目和答案
-* 问题和解答
+* 问题和解答（主要来自[zlaizhe](https://github.com/zlaizhe)）
     * 泛型问题
     * 集合类问题
     * IO流问题
