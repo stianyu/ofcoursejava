@@ -1,5 +1,10 @@
 package my.learning.jdbc.transaction;
 
+import my.learning.jdbc.aop.AfterAspect;
+import my.learning.jdbc.aop.BeforeAspect;
+import my.learning.jdbc.aop.ExceptionAspect;
+import my.learning.jdbc.aop.FinalAspect;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -16,6 +21,7 @@ public class TransactionManager {
     }
 
     //开始事务
+    @BeforeAspect
     public void beginTransaction(){
         Connection conn = connectionUtils.getThreadConnection();
         try {
@@ -26,6 +32,7 @@ public class TransactionManager {
     }
 
     //提交事务
+    @AfterAspect
     public void commit(){
         Connection conn = connectionUtils.getThreadConnection();
         try {
@@ -36,6 +43,7 @@ public class TransactionManager {
     }
 
     //回滚事务
+    @ExceptionAspect
     public void rollback(){
         Connection conn = connectionUtils.getThreadConnection();
         try {
@@ -46,6 +54,7 @@ public class TransactionManager {
     }
 
     //释放连接
+    @FinalAspect
     public void release(){
         Connection conn = connectionUtils.getThreadConnection();
         try {

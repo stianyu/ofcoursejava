@@ -25,7 +25,7 @@ public class AccountServiceImpl3 implements AccountService {
         }
         accountDao.updateMoneyById(srcId, srcAccount.getMoney() - money);
         // 这里可能有异常
-//        int i = 1 / 0;
+        int i = 1 / 0;
         accountDao.updateMoneyById(talId, talAccount.getMoney() + money);
 
         return true;
