@@ -12,7 +12,7 @@ public class AccountServiceImpl implements AccountService{
     private AccountDao accountDao = new AccountDaoImpl();
 
     @Override
-    public boolean transform(int srcId, int talId, float money) {
+    public Boolean transform(int srcId, int talId, float money) {
         try {
             // 开启事务（设计一个事务管理器，给业务层调用）
             Account srcAccount = accountDao.findById(srcId);

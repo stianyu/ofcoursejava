@@ -8,14 +8,14 @@ import my.learning.jdbc.transaction.TransactionFactory;
 import my.learning.jdbc.transaction.TransactionManager;
 
 /**
- * 没有使用事务管理器
+ * 使用事务管理器
  */
 public class AccountServiceImpl2 implements AccountService {
     private AccountDao accountDao = new AccountDaoImpl2();
     private TransactionManager transactionManager = TransactionFactory.getTransactionManager();
 
     @Override
-    public boolean transform(int srcId, int talId, float money) {
+    public Boolean transform(int srcId, int talId, float money) {
         try {
             // 开启事务（设计一个事务管理器，给业务层调用）
             transactionManager.beginTransaction();
