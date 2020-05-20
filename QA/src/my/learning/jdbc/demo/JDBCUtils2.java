@@ -10,6 +10,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+/**
+ * 注入了Druid连接池的JDBCUtil工具类
+ * 使用数据库连接池，解决了频繁申请、释放资源对资源的浪费，且统一管理响应速率高
+ */
 public class JDBCUtils2 {
     //连接池成员变量
     private static DataSource ds;

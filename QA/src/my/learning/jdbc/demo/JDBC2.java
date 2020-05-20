@@ -16,7 +16,7 @@ public class JDBC2 {
         try {
             //1.注册驱动(已解决)
             //2.获取连接（已解决）
-            conn = JDBCUtils2.getConnection();
+            conn = JDBCUtils.getConnection();
             String sql = "select * from account where id = ?";
 
             //3.执行sql
