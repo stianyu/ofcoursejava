@@ -6,6 +6,7 @@
 * 马士兵老师，马老师的课什么都好就是对我来说太贵难度太大，我有时会蹭直播公开课，蹭书。感兴趣可以支持一下（腾讯课堂）
 #### 简要介绍
 * DesignPatterns 设计模式代码库
+* MyLeetCode     我的LeetCode解题代码库
 * QA             题目和答案代码库
 * SortAlgorithms 排序算法代码库
 * DataStructure  数据结构代码库（待更新）
@@ -15,6 +16,10 @@
 * 抽象工厂
 * 适配器模式
 * 代理
+#### MyLeetCode我的LeetCode解题代码库
+* 代码
+* 思路（待更新）
+* 一些题型的总结
 #### QA题目和答案
 * 问题和解答（问题来自[zlaizhe](https://github.com/zlaizhe)）
     * 泛型问题
