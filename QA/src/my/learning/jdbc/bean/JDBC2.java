@@ -1,13 +1,9 @@
 package my.learning.jdbc.bean;
 
 
-import my.learning.jdbc.dao.AccountDaoTest;
-
-import javax.jws.soap.SOAPBinding;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,10 +23,11 @@ public class JDBC2 {
 
             //2.获取连接
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db2", "root", "123456");
+            //*** 重点是：sql语句怎么写、字段重名怎么解决、实体类关联 ***
             String sql = "SELECT account.id aid, account.`money`,user.* FROM account INNER JOIN USER ON account.uid = user.id AND user.id = ?";  //用占位符防止SQL注入
 
             //3.执行sql
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement(sql);  // 每次只编译一次，改变id的值要比之前的效率高
             ps.setInt(1, 2);
             rs = ps.executeQuery();
 
