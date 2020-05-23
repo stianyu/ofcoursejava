@@ -1,4 +1,4 @@
-package _34;
+package BinarySearch._34;
 
 import java.util.Arrays;
 
@@ -21,7 +21,7 @@ public class Solution {
             int mid = l + (r - l) / 2;
 //            System.out.println(l + ", " + r);
             if (nums[mid] < target) {
-                l = mid + 1;
+                l = mid + 1; // 如果是l = mid,则会陷入死循环
             } else {
                 r = mid - 1; //如果nums[mid] > target的话，说明在左边，所以就把r往mid的左边挪一个
             }
@@ -36,7 +36,7 @@ public class Solution {
             int mid = l + (r - l) / 2;
 //            System.out.println(l + ", " + r);
             if (nums[mid] > target) {
-                r = mid - 1;
+                r = mid - 1;  //如果是r = mid,则会陷入死循环
             } else {
                 l = mid + 1;  //如果nums[mid] < target的话，说明要找的索引在右边，因此把l往mid往右挪一个
             }
