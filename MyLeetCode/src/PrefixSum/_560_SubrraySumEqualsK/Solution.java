@@ -48,7 +48,8 @@ public class Solution {
     public int subarraySum2(int[] nums, int k) {
         // HashMap： 前缀和 -> 该前缀和出现的次数
         HashMap<Integer, Integer> prefixSum = new HashMap<>();
-        prefixSum.put(0, 1);
+
+        prefixSum.put(0, 1);  // nums[i] 本身就等于k
 
         int count = 0;
         int sum0toi = 0;
@@ -56,11 +57,11 @@ public class Solution {
             sum0toi += nums[i];
             // 找前缀和 nums[0..j]
             int sum0toj = sum0toi - k;
-            // 如果有这个前缀和sum0toj，则直接更新
+            // 如果有这个前缀和 sum0toj，则直接更新
             if(prefixSum.containsKey(sum0toj)) {
                 count += prefixSum.get(sum0toj);
             }
-            // 加入当前sum0toi到前缀和中并记录次数
+            // 加入当前 sum0toi 到前缀和中并记录次数
             prefixSum.put(sum0toi, prefixSum.getOrDefault(sum0toi, 0) + 1);
         }
 
