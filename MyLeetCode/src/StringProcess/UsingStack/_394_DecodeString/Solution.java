@@ -25,7 +25,11 @@ public class Solution {
                 while(!stack.isEmpty() && Character.isDigit(stack.peek())) {
                     tempNumber.append(stack.pop());
                 }
-                int count = Integer.parseInt(tempNumber.reverse().toString());
+                int count = 0;
+                char[] tempNumberChar = tempNumber.reverse().toString().toCharArray();
+                for (int k = 0; k < tempNumberChar.length ; k++) {
+                    count = count * 10 + Integer.parseInt(String.valueOf(tempNumberChar[k]));
+                }
                 while(count != 0) {
                     for(int j = tempArray.length - 1; j >= 0; j--) {
                         stack.push(tempArray[j]);
@@ -42,5 +46,11 @@ public class Solution {
             sb.append(stack.pop());
         }
         return sb.reverse().toString();
+    }
+
+    public static void main(String[] args) {
+        String s = "10[a]2[bc]";
+        Solution solution = new Solution();
+        System.out.println(solution.decodeString(s));
     }
 }
