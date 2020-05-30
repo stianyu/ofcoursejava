@@ -21,43 +21,35 @@ public class Solution {
             return "";
         }
         Deque<Character> stack = new LinkedList<>();
-        char[] chs = s.toCharArray();
-        stack.push(chs[0]);
-        int i = 1;
-        while(i < s.length()) {
-            if(chs[i] == ']') {
-                StringBuilder tempBuilder = new StringBuilder();
-                char c = stack.pop();
-                while(c != '[') {
-                    tempBuilder.append(c);
-                    c = stack.pop();
+        char[] chars = s.toCharArray();
+        for(int i = 0; i < chars.length; i++) {
+            if(chars[i] == ']') {  // 遇到 ] 时，对当前 [] 内字符串进行处理
+                char c;
+                StringBuilder str = new StringBuilder();  // 保存 [] 里的字符串
+                while((c = stack.pop()) != '[') {
+                    str.append(c);
                 }
-                char[] tempArray = tempBuilder.toString().toCharArray();
-                StringBuilder tempNumber = new StringBuilder();
+                str.reverse();
+                StringBuilder strNum = new StringBuilder();  // 保存 [] 前的数字字符串
                 while(!stack.isEmpty() && Character.isDigit(stack.peek())) {
-                    tempNumber.append(stack.pop());
+                    strNum.append(stack.pop());
                 }
-                int count = 0;
-                char[] tempNumberChar = tempNumber.reverse().toString().toCharArray();
-                for (int k = 0; k < tempNumberChar.length ; k++) {
-                    count = count * 10 + Integer.parseInt(String.valueOf(tempNumberChar[k]));
-                }
-                while(count != 0) {
-                    for(int j = tempArray.length - 1; j >= 0; j--) {
-                        stack.push(tempArray[j]);
+                strNum.reverse();
+                int count = strNum.length() == 0? 0 : Integer.parseInt(strNum.toString());
+                for(int j = 0; j < count; j++) {  // 对 [] 内的字符串解码（重复入栈）
+                    for(char ch : str.toString().toCharArray()) {
+                        stack.push(ch);
                     }
-                    count--;
                 }
             } else {
-                stack.push(chs[i]);
+                stack.push(chars[i]);
             }
-            i++;
         }
-        StringBuilder sb = new StringBuilder();
+        StringBuilder res = new StringBuilder();  // 最后处理完 [] 的 stack 保存的字符串就是结果，先进后出
         while(!stack.isEmpty()) {
-            sb.append(stack.pop());
+            res.append(stack.pop());
         }
-        return sb.reverse().toString();
+        return res.reverse().toString();
     }
 
     public static void main(String[] args) {
