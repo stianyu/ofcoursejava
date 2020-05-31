@@ -20,7 +20,7 @@
 
 > 例题2：LeetCode84，柱状图中最大的矩形
 
-(https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/histogram_area.png)
+![avatar](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/12/histogram_area.png)
 
 [2, 1, 5, 6, 2, 3]
 
