@@ -21,7 +21,9 @@ public class Solution {
         for (int i = 0; i < newHeights.length; i++) {
             while (!stack.isEmpty() && newHeights[stack.peek()] > newHeights[i]) {
                 int cur = stack.pop();
-                res = Math.max(res, (i - stack.peek() - 1) * newHeights[cur]);
+                int right = i;  // 以 cur 为最大高度的矩形的右边界
+                int left = stack.peek() - 1;  // 以 cur 为最大高度的矩形的左边界
+                res = Math.max(res, (right - left) * newHeights[cur]);
             }
             stack.push(i);
         }
