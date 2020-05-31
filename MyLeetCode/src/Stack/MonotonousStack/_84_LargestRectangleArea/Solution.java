@@ -22,8 +22,9 @@ public class Solution {
             while (!stack.isEmpty() && newHeights[stack.peek()] > newHeights[i]) {
                 int cur = stack.pop();
                 int right = i;  // 以 cur 为最大高度的矩形的右边界
-                int left = stack.peek() - 1;  // 以 cur 为最大高度的矩形的左边界
+                int left = stack.peek() + 1;  // 以 cur 为最大高度的矩形的左边界
                 res = Math.max(res, (right - left) * newHeights[cur]);
+                System.out.println(res);
             }
             stack.push(i);
         }
