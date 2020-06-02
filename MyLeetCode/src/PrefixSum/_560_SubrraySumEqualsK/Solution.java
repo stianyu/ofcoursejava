@@ -52,17 +52,17 @@ public class Solution {
         prefixSum.put(0, 1);  // nums[i] 本身就等于k
 
         int count = 0;
-        int sum0toi = 0;
+        int sum0toR = 0;
         for(int i = 0; i < nums.length; i++) {
-            sum0toi += nums[i];
+            sum0toR += nums[i];
             // 找前缀和 nums[0..j]
-            int sum0toj = sum0toi - k;
+            int sum0toL = sum0toR - k;
             // 如果有这个前缀和 sum0toj，则直接更新
-            if(prefixSum.containsKey(sum0toj)) {
-                count += prefixSum.get(sum0toj);
+            if(prefixSum.containsKey(sum0toL)) {
+                count += prefixSum.get(sum0toL);
             }
             // 加入当前 sum0toi 到前缀和中并记录次数
-            prefixSum.put(sum0toi, prefixSum.getOrDefault(sum0toi, 0) + 1);
+            prefixSum.put(sum0toR, prefixSum.getOrDefault(sum0toR, 0) + 1);
         }
 
         return count;
