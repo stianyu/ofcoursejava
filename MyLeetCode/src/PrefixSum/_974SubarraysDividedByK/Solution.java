@@ -52,18 +52,18 @@ public class Solution {
         prefixSum.put(0, 1);
 
         int count = 0;
-        int sum0toi = 0;
+        int sum0toR = 0;
         for(int i = 0; i < A.length; i++) {
-            sum0toi += A[i];
+            sum0toR += A[i];
             // 原本是计算 (prefixSum(i) - prefixSum(j)) % K == 0 的个数，相当于计算 (prefixSum(i)) % K == prefixSum(j)的前缀和的个数
             // int sum0toj = sum0toi % K; // 正数的余数
-            int sum0toj = (sum0toi % K + K) % K; // 负数的余数为(num % K + K) % K 【不用区分正负数】
-            if(prefixSum.containsKey(sum0toj)) {
-                count += prefixSum.get(sum0toj);
+            int sum0toL = (sum0toR % K + K) % K; // 负数的余数为(num % K + K) % K 【不用区分正负数】
+            if(prefixSum.containsKey(sum0toL)) {
+                count += prefixSum.get(sum0toL);
             } else {
                 count += 0; // 如果不包含就直接加0
             }
-            prefixSum.put(sum0toj, prefixSum.getOrDefault(sum0toj, 0) + 1);
+            prefixSum.put(sum0toL, prefixSum.getOrDefault(sum0toL, 0) + 1);
         }
         return count;
     }
