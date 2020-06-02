@@ -15,16 +15,17 @@ public class Solution {
         int res = 0;
         Deque<Integer> stack = new ArrayDeque<>();
         int[] newHeights = new int[heights.length + 2];
-        for (int i = 1; i < heights.length + 1; i++) {
-            newHeights[i] = heights[i - 1];
-        }
+//        for (int i = 1; i < heights.length + 1; i++) {
+//            newHeights[i] = heights[i - 1];
+//        }
+        System.arraycopy(heights, 0, newHeights, 1, heights.length);
         for (int i = 0; i < newHeights.length; i++) {
             while (!stack.isEmpty() && newHeights[stack.peek()] > newHeights[i]) {
                 int cur = stack.pop();
                 int right = i;  // 以 cur 为最大高度的矩形的右边界
                 int left = stack.peek() + 1;  // 以 cur 为最大高度的矩形的左边界
                 res = Math.max(res, (right - left) * newHeights[cur]);
-                System.out.println(res);
+//                System.out.println(res);
             }
             stack.push(i);
         }
