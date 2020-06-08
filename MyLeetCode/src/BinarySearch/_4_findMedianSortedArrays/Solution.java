@@ -1,4 +1,4 @@
-package BinarySearch._4;
+package BinarySearch._4_findMedianSortedArrays;
 
 /**
  * 4. 寻找两个正序数组的中位数
