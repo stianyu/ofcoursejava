@@ -28,3 +28,18 @@ public class Solution {  // dfs如何思考时间、空间复杂度？
         return helper(str, index + 1);
     }
 }
+class Solution2 {
+    // zlz解法
+    public int translateNum(int num) {
+        if (num <= 9) {
+            return 1;
+        }
+
+        int res = translateNum(num / 10);
+        if (num % 100 <= 25 && num % 100 >= 10) {
+            res += translateNum(num / 100);
+        }
+        return res;
+    }
+
+}
