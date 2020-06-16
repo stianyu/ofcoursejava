@@ -1,4 +1,4 @@
-package StringProcess.UsingStack._762_CountOfAtoms;
+package StringProcess.UsingStack._726_CountOfAtoms;
 
 import java.util.*;
 
@@ -95,6 +95,7 @@ public class Solution {
 
         for(int i = 0; i < chars.length; i++) {
             if (chars[i] == ')') {
+                // 记录 （）后的倍数，有数字则 time 为后面的所有数字，不为数字则 time = 1
                 int time = 0;
                 while (i+1 < chars.length && Character.isDigit(chars[i + 1])) {
                     time = 10*time + chars[i + 1] - '0';
@@ -103,11 +104,8 @@ public class Solution {
                 if (time == 0) {
                     time = 1;
                 }
-
-                for(Iterator<String> it = map.keySet().iterator(); it.hasNext();) {
-                    String key = it.next();
-                    map.put(key, map.get(key) * time);
-                }
+                // 解括号，一层括号
+                 Map<String, Integer> mapIn = new HashMap<>();
                 while(stack.peek() != '(') {
                     int count = 1;
                     StringBuilder numStr = new StringBuilder();
@@ -124,9 +122,13 @@ public class Solution {
                     }
                     atom.append(stack.pop());
                     atom.reverse();
-                    map.put(atom.toString(), map.getOrDefault(atom.toString(), 0) + count * time);
+                    mapIn.put(atom.toString(), mapIn.getOrDefault(atom.toString(), 0)  + count);
                 }
                 stack.pop();
+                for (String key : mapIn.keySet()) {
+                    int value = mapIn.get(key);
+                    map.put(key, map.getOrDefault(key, 0) + value * time);
+                }
             } else {
                 stack.push(chars[i]);
             }
@@ -152,18 +154,19 @@ public class Solution {
         }
 
         StringBuilder sb = new StringBuilder();
-        map.forEach((key, value) -> {
+        for (String key : map.keySet()) {
             sb.append(key);
-            if(value != 1) {
+            int value = 0;
+            if ((value = map.get(key)) != 1) {
                 sb.append(value);
             }
-        });
+        }
 
         return sb.toString();
     }
 
     public static void main(String[] args) {
-        String formula = "((N42)24(OB40Li30CHe3O48LiNN26)33(C12Li48N30H13HBe31)21(BHN30Li26BCBe47N40)15(H5)16)14";
+        String formula = "((B40He3)33(B)15)14";
         Solution solution = new Solution();
         System.out.println(solution.countOfAtoms2(formula));
     }
