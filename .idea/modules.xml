@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CommonAlgorithms/CommonAlgorithms.iml" filepath="$PROJECT_DIR$/CommonAlgorithms/CommonAlgorithms.iml" />
       <module fileurl="file://$PROJECT_DIR$/DesignPatterns/DesignPatterns.iml" filepath="$PROJECT_DIR$/DesignPatterns/DesignPatterns.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyLeetCode/MyLeetCode.iml" filepath="$PROJECT_DIR$/MyLeetCode/MyLeetCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/QA/QA.iml" filepath="$PROJECT_DIR$/QA/QA.iml" />
