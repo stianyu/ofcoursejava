@@ -11,6 +11,7 @@ package DynamicProgramming.ClassicalProblem._5_LongestPalindrome;
  *      输入: "cbbd"
  *      输出: "bb"
  *
+ *  参考：https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/
  */
 public class Solution {
     public String longestPalindrome(String s) {
