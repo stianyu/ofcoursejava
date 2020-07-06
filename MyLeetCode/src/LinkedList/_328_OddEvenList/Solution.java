@@ -1,6 +1,6 @@
 package LinkedList._328_OddEvenList;
 
-import DynamicProgramming.common.ListNode;
+import LinkedList.common.ListNode;
 
 /**
  * 328. 奇偶链表
@@ -31,5 +31,33 @@ public class Solution {
         odd.next = evenHead;
 
         return head;  // 这里为什么可以返回 head? 意思是odd指向head，修改odd也会修改head吗，这是什么原理？
+    }
+
+    public ListNode oddEvenList2(ListNode head) {
+        if(head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode odd = new ListNode(-1);
+        ListNode even = new ListNode(-1);
+        ListNode cur = head;
+        ListNode headOdd = odd, headEven = even;    // ?
+
+        boolean isOdd = true;
+        while(cur != null) {
+            if(isOdd) {
+                odd.next = cur;
+                odd = odd.next;
+            } else {
+                even.next = cur;
+                even = even.next;
+            }
+            cur = cur.next;
+            isOdd = !isOdd;
+        }
+        even.next = null;
+        odd.next = headEven.next;
+
+        return headOdd.next;
     }
 }
