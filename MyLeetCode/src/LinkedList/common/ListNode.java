@@ -1,4 +1,4 @@
-package DynamicProgramming.common;
+package LinkedList.common;
 
 public class ListNode {
     public int val;
