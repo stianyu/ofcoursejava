@@ -43,7 +43,7 @@ public class Solution {
 
         for(int i = index; i <= n; i++) {
             list.add(i);
-            backTrack(n, i + 1, k, list);
+            backTrack(n, i + 1, k, list);  // 这里传进去的应该是 i + 1，因为 i 之前的元素不用再考虑了
             list.remove(list.size() - 1);
         }
     }
