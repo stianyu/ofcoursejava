@@ -48,6 +48,19 @@ public class Solution {
         }
     }
 
+    // 剪枝
+    private void backTrack2(int n, int index, int k, List<Integer> list) {
+        if(list.size() == k) {
+            res.add(new LinkedList<Integer>(list));
+            return;
+        }
+
+        for(int i = index; i <= n - (k - list.size()) + 1; i++) {
+            list.add(i);
+            backTrack(n, i + 1, k, list);  // 这里传进去的应该是 i + 1，因为 i 之前的元素不用再考虑了
+            list.remove(list.size() - 1);
+        }
+    }
 
 
 }
