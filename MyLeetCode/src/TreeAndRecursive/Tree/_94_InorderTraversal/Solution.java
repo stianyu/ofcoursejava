@@ -2,6 +2,7 @@ package TreeAndRecursive.Tree._94_InorderTraversal;
 
 import TreeAndRecursive.common.TreeNode;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,10 +32,27 @@ public class Solution {
     }
 
     public List<Integer> inorderTraversalRer(TreeNode root) {  // 迭代写法
-        if (root == null) {
+        List<Integer> res = new ArrayList<>();
+
+        if(root == null) {
             return res;
+        }
+
+        ArrayDeque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode cur = root;
+
+        while(cur != null || !stack.isEmpty()) {
+            while(cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+
+            cur = stack.pop();
+            res.add(cur.val);
+            cur = cur.right;
         }
 
         return res;
     }
+
 }
