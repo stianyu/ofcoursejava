@@ -1,4 +1,4 @@
-package TreeAndRecursive.Tree._236_LowestCommonAncestor;
+package TreeAndRecursive.Tree.Verify._236_LowestCommonAncestor;
 
 import TreeAndRecursive.common.TreeNode;
 
