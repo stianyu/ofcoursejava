@@ -1,4 +1,4 @@
-package TreeAndRecursive.Tree.Verify_98_IsValidBST;
+package TreeAndRecursive.Tree.Verify._98_IsValidBST;
 
 import TreeAndRecursive.common.TreeNode;
 import javafx.scene.control.cell.CheckBoxListCell;
