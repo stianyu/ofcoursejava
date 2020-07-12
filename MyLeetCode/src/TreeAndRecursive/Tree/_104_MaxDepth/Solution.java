@@ -41,4 +41,11 @@ public class Solution {
 
         return Math.max(helper(root.left, depth + 1), helper(root.right, depth + 1));
     }
+
+    private int maxDepth3(TreeNode root) {
+        if(root == null) {
+            return 0;
+        }
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+    }
 }
