@@ -6,65 +6,54 @@ import java.util.concurrent.Semaphore;
 
 public class SemaphoresExample {
 
-    private Semaphore semaphoreA = new Semaphore(1);
-    private Semaphore semaphoreB = new Semaphore(0);
-    private Semaphore semaphoreC = new Semaphore(0);
+    static Semaphore semaphoreA = new Semaphore(1);
+    static Semaphore semaphoreB = new Semaphore(0);
+    static Semaphore semaphoreC = new Semaphore(0);
+
+    public static void taskA() {
+        for (int i = 0; i < 10; i++) {
+            try {
+                semaphoreA.acquire();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.print("A");
+            semaphoreB.release();
+        }
+    }
+
+    public static void taskB() {
+        for (int i = 0; i < 10; i++) {
+            try {
+                semaphoreB.acquire();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.print("B");
+            semaphoreC.release();
+        }
+    }
+
+    public static void taskC() {
+        for (int i = 0; i < 10; i++) {
+            try {
+                semaphoreC.acquire();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.print("C");
+            semaphoreA.release();
+        }
+    }
 
     public static void main(String[] args) {
-        SemaphoresExample semaphoresExample = new SemaphoresExample();
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
 
-        fixedThreadPool.submit(semaphoresExample.new RunnableA());
-        fixedThreadPool.submit(semaphoresExample.new RunnableB());
-        fixedThreadPool.submit(semaphoresExample.new RunnableC());
+        fixedThreadPool.execute(SemaphoresExample::taskA);
+        fixedThreadPool.execute(SemaphoresExample::taskB);
+        fixedThreadPool.execute(SemaphoresExample::taskC);
 
         fixedThreadPool.shutdown();
 
-    }
-
-    private class RunnableA implements Runnable {
-
-        @Override
-        public void run() {
-            for (int i = 0; i < 10; i++) {
-                try {
-                    semaphoreA.acquire();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.print("A");
-                semaphoreB.release();
-            }
-        }
-    }
-
-    private class RunnableB implements Runnable {
-        @Override
-        public void run() {
-            for (int i = 0; i < 10; i++) {
-                try {
-                    semaphoreB.acquire();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.print("B");
-                semaphoreC.release();
-            }
-        }
-    }
-
-    private class RunnableC implements Runnable {
-        @Override
-        public void run() {
-            for (int i = 0; i < 10; i++) {
-                try {
-                    semaphoreC.acquire();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.print("C");
-                semaphoreA.release();
-            }
-        }
     }
 }
