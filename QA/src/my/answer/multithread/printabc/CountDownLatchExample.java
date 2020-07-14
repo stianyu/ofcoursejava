@@ -39,14 +39,11 @@ public class CountDownLatchExample {
     }
 
     public static void main(String[] args) {
-        CountDownLatchExample countDownLatchExample = new CountDownLatchExample();
 
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
-        fixedThreadPool.submit(CountDownLatchExample::taskA);
-        fixedThreadPool.submit(CountDownLatchExample::taskB);
-        fixedThreadPool.submit(() -> {
-            taskC();
-        });
+        fixedThreadPool.execute(CountDownLatchExample::taskA);
+        fixedThreadPool.execute(CountDownLatchExample::taskB);
+        fixedThreadPool.execute(CountDownLatchExample::taskC);
 
         fixedThreadPool.shutdown();
     }
