@@ -47,5 +47,7 @@ public class CountDownLatchExample {
         fixedThreadPool.submit(() -> {
             taskC();
         });
+
+        fixedThreadPool.shutdown();
     }
 }
