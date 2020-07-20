@@ -17,8 +17,8 @@ public class test {
 		System.out.println(c3.hashCode());
 		System.out.println(c4.hashCode());
 
-		C2 c5 = C2.getInstance();
-		C2 c6 = C2.getInstance();
+		C33 c5 = C33.getInstance();
+		C33 c6 = C33.getInstance();
 		System.out.println(c5 == c6);
 		System.out.println(c5.hashCode());
 		System.out.println(c6.hashCode());
