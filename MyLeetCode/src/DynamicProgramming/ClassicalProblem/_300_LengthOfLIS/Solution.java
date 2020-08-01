@@ -16,6 +16,7 @@ import java.util.Arrays;
  */
 public class Solution {
     public int lengthOfLIS(int[] nums) {
+        // 使用动态规划，时间复杂度为 O(n^2)
         int[] dp = new int[nums.length]; //dp[i] 表⽰以 nums[i] 这个数结尾的最⻓递增⼦序列的⻓度。
         Arrays.fill(dp, 1);
         int res = Integer.MIN_VALUE;
@@ -30,5 +31,10 @@ public class Solution {
         }
 
         return nums.length == 0? 0: res;
+    }
+
+    // 使用二分查找, 蜘蛛纸牌算法 O(nlogn)
+    public int lengthOfLIS2(int[] nums) {
+        return 0;
     }
 }
