@@ -20,7 +20,26 @@ import java.util.Arrays;
  */
 public class Solution {
     public boolean canPartition(int[] nums) {
-        return false;
+        int sum = 0;
+        for(int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+        }
+        if(sum % 2 != 0) {
+            return false;
+        }
+        sum = sum / 2;
+        //dp[j] 表示nums[0 - i]这段中是否满足有集合和为j
+        boolean[] dp = new boolean[sum + 1];
+        // // 这步初始化的原因是什么？
+        dp[0] = true;
+
+        for(int i = 0; i < nums.length; i++) {
+            for(int j = sum; j >= nums[i]; j--) {
+                dp[j] = dp[j] || dp[j-nums[i]];
+            }
+        }
+
+        return dp[sum];
     }
 
     public static void main(String[] args) {
