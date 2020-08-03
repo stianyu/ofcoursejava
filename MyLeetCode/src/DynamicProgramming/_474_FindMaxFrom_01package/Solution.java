@@ -22,7 +22,7 @@ public class Solution {
         int length = strs.length;
         int[][] dp = new int[m+1][n+1];
         /*
-        转换成01背包问题
+        转换成 二维费用01背包问题
         状态定义：
         dp[i][j][k] 表示看字符串0~i,使用0~j个0，使用0~k个1，拼出的字符串的最大数量
         状态转移：
