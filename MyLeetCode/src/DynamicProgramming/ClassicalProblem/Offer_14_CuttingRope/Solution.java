@@ -1,5 +1,7 @@
 package DynamicProgramming.ClassicalProblem.Offer_14_CuttingRope;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * 给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n>1并且m>1），每段绳子的长度记为 k[0],k[1]...k[m-1] 。请问 k[0]*k[1]*...*k[m-1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
  * 示例 1：
@@ -40,5 +42,16 @@ public class Solution {
             n -= 3;
         }
         return sum * n;
+    }
+
+    public int cuttingRope3(int n) {
+        if(n == 2) return 1;
+        if(n == 3) return 2;
+        long sum = 1;  // sum设置成long
+        while(n > 4) {
+            sum = sum * 3 % 1000000007;
+            n -= 3;
+        }
+        return (int)(sum * n % 1000000007); // 最后要转成int
     }
 }
