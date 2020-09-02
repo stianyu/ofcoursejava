@@ -41,6 +41,12 @@ public class CountDownLatchExample {
     public static void main(String[] args) {
 
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
+//        fixedThreadPool.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//                CountDownLatchExample.taskA();
+//            }
+//        });
         fixedThreadPool.execute(CountDownLatchExample::taskA);
         fixedThreadPool.execute(CountDownLatchExample::taskB);
         fixedThreadPool.execute(CountDownLatchExample::taskC);
