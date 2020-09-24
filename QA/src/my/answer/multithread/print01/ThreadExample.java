@@ -14,7 +14,7 @@ public class ThreadExample {
         executorService.execute(() -> {
             while (count <= 100) {
                 if (flag) {
-                    System.out.println("偶数：" + count++);
+                    System.out.println(Thread.currentThread().getName() + "偶数：" + count++);
                     flag = false;
                 }
             }
@@ -22,7 +22,7 @@ public class ThreadExample {
         executorService.execute(() -> {
             while (count <= 100) {
                 if (!flag) {
-                    System.out.println("奇数：" + count++);
+                    System.out.println(Thread.currentThread().getName() + "奇数：" + count++);
                     flag = true;
                 }
             }
