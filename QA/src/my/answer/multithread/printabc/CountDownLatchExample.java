@@ -11,7 +11,7 @@ public class CountDownLatchExample {
 
     public static void taskA() {
         for (int i = 0; i < 10; i++) {
-            System.out.println("A");
+            System.out.println(Thread.currentThread().getName() + ": A");
             countDownLatch1.countDown();
         }
     }
@@ -23,7 +23,7 @@ public class CountDownLatchExample {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("B");
+            System.out.println(Thread.currentThread().getName() + ": B");
             countDownLatch2.countDown();
         }
     }
@@ -35,6 +35,7 @@ public class CountDownLatchExample {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            System.out.println(Thread.currentThread().getName() + ": C");
         }
     }
 
