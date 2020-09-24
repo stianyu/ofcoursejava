@@ -3,6 +3,8 @@ package my.algorithms.lru;
 import sun.net.util.IPAddressUtil;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * 缓存淘汰算法：LRU
@@ -94,15 +96,36 @@ public class LRUCache {
 
         if (map.containsKey(key)) {
             cache.remove(map.get(key));
-            cache.addFirst(node);
-            map.put(key, node);
         } else {
             if (capacity == cache.getSize()) {
                 Node last = cache.removeLast();
                 map.remove(last.key);
             }
-            cache.addFirst(node);
-            map.put(key, node);
         }
+        cache.addFirst(node);
+        map.put(key, node);
+    }
+}
+
+class LRUCache2{
+    int capacity;
+    LinkedHashMap<Integer, Integer> cache;
+
+    public LRUCache2(int capacity) {
+        this.capacity = capacity;
+        cache = new LinkedHashMap<Integer, Integer>(capacity, 0.75f, true) {
+            @Override
+            protected boolean removeEldestEntry(Map.Entry eldest) {
+                return cache.size() > capacity;
+            }
+        };
+    }
+
+    public int get(int key) {
+        return cache.getOrDefault(key, -1);
+    }
+
+    public void put(int key, int value) {
+        cache.put(key, value);
     }
 }
