@@ -28,7 +28,6 @@ package TreeAndRecursive.BackTrace._200_NumIsIands;
  */
 public class Solution {
     // floodFill 算法
-    boolean[][] visited;
     int[][] position = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
     int res;
 
@@ -37,11 +36,9 @@ public class Solution {
             return res;
         }
 
-        visited = new boolean[grid.length][grid[0].length];
-
         for(int row = 0; row < grid.length; row++) {
             for(int col = 0; col < grid[0].length; col++) {
-                if(grid[row][col] == '1' && !visited[row][col]) {
+                if(grid[row][col] == '1') {
                     res++;
                     dfs(grid, row, col);
                 }
@@ -52,12 +49,12 @@ public class Solution {
     }
 
     private void dfs(char[][] grid, int row, int col) {
-        visited[row][col] = true;
+        grid[row][col] = '0';
         for(int[] pos : position) {
             int newR = row + pos[0];
             int newC = col + pos[1];
             // 看似没有递归终止条件，其实在这里递归就停止了
-            if(newR >= 0 && newR < grid.length && newC >= 0 && newC < grid[0].length && !visited[newR][newC] && grid[newR][newC] == '1') {
+            if(newR >= 0 && newR < grid.length && newC >= 0 && newC < grid[0].length && grid[newR][newC] == '1') {
                 dfs(grid, newR, newC);
             }
         }
